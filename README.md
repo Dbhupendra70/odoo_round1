@@ -1,28 +1,24 @@
-# odoo_round1
-<<<<<<< HEAD
-to push all the code of ODOO round 1 code
+ 
 ## Team Details
 
 **Team Leader**: Mahak Gupta  
 **Problem Statement**: 
 Problem Statement 3:-
 **ReWear – Community Clothing Exchange**
-=======
 
 ## Team Details
 
 *Team Leader*: Mahak Gupta  
 *Problem Statement*: 
 Problem Statement 3:-
-*ReWear – Community Clothing Exchange*
->>>>>>> 2761784be1487dc5cac78bd4e166e1dbce8bf176
+ 
 Overview:
 Develop ReWear, a web-based platform that enables users to exchange unused clothing
 through direct swaps or a point-based redemption system. The goal is to promote sustainable
 fashion and reduce textile waste by encouraging users to reuse wearable garments instead of
 discarding them.
 Features:
-<<<<<<< HEAD
+ 
 User Authentication :
 Email/password signup and login
 Landing Page:
@@ -34,7 +30,6 @@ Profile details and points balance
 Uploaded items overview
 Ongoing and completed swaps list
 Item Detail Page: 
-=======
 1. User Authentication :
 Email/password signup and login
 2. Landing Page:
@@ -46,12 +41,11 @@ Profile details and points balance
 Uploaded items overview
 Ongoing and completed swaps list
 4. Item Detail Page: 
->>>>>>> 2761784be1487dc5cac78bd4e166e1dbce8bf176
 Image gallery and full item description
 Uploader info
 Options: “Swap Request” or “Redeem via Points”
 Item availability status
-<<<<<<< HEAD
+ 
 Add New Item Page:
 Upload images
 Enter title, description, category, type, size, condition, and tags
@@ -61,7 +55,7 @@ Moderate and approve/reject item listings
 Remove inappropriate or spam items
 Lightweight admin panel for oversight
 Mockup Link: https://app.excalidraw.com/l/65VNwvy7c4X/zEqG7IJrg0
-=======
+ 
 5. Add New Item Page:
 Upload images
 Enter title, description, category, type, size, condition, and tags
@@ -73,4 +67,4 @@ Lightweight admin panel for oversight
 Mockup Link: https://app.excalidraw.com/l/65VNwvy7c4X/zEqG7IJrg0 
 
 
->>>>>>> 2761784be1487dc5cac78bd4e166e1dbce8bf176
+ 
