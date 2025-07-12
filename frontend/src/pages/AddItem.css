@@ -1,0 +1,37 @@
+.add-item-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-item-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-item-container form input,
+.add-item-container form textarea,
+.add-item-container form button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.add-item-container form button {
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.image-preview {
+  margin-top: 10px;
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
