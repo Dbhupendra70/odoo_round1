@@ -1,27 +1,27 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+// src/App.jsx
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import AddItem from "./pages/AddItem";
-import MyRequests from "./pages/MyRequests";
+import UploadItem from "./pages/UploadItem";
+import AdminPanel from "./pages/AdminPanel";
+
 
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/add-item" element={<AddItem />} />
-        <Route path="/my-requests" element={<MyRequests />} />
-        
+        <Route path="/login" element={<Login />} />
+        <Route path="/upload" element={<UploadItem />} />
+        <Route path="/admin" element={<AdminPanel />} />
+
       </Routes>
-    </>
+    </BrowserRouter>
   );
 }
 

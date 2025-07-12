@@ -1,59 +1,54 @@
-import { useContext } from "react";
-import { ItemContext } from "../context/ItemContext";
-import { AuthContext } from "../context/AuthContext";
-import "./Home.css";
+
+
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "../api";
+import "./Home.css"; // 👉 Add this line if using external CSS
 
 export default function Home() {
-  const { items, updateItemStatus } = useContext(ItemContext);
-  const { isAuthenticated } = useContext(AuthContext);
+  const [items, setItems] = useState([]);
+  const navigate = useNavigate();
 
-  const handleSwap = (index) => {
-  updateItemStatus(index, {
-    status: "requested",
-    requestedBy: user?.email, // Track who requested
-  });
-  alert("Swap request sent!");
-};
+  useEffect(() => {
+    axios.get("/items/approved").then((res) => setItems(res.data));
+  }, []);
 
-const handleRedeem = (index) => {
-  updateItemStatus(index, {
-    status: "redeemed",
-    requestedBy: user?.email,
-  });
-  alert("Item redeemed via points!");
-};
-
+  const handleSwap = async (itemId, viaPoints) => {
+    try {
+      await axios.post("/swap/request", {
+        item_id: itemId,
+        via_points: viaPoints,
+      });
+      alert("Request sent successfully");
+    } catch (err) {
+      alert(err.response?.data?.detail || "Swap failed");
+    }
+  };
 
   return (
     <div className="home-container">
-      <h2>Available Items</h2>
-      {items.length === 0 ? (
-        <p>No items listed yet.</p>
-      ) : (
-        <div className="item-grid">
-          {items.map((item, index) => (
-            <div key={index} className="item-card">
-              <img src={item.image} alt={item.title} />
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <p><strong>Size:</strong> {item.size}</p>
-              <p><strong>Condition:</strong> {item.condition}</p>
-              <p><strong>Status:</strong> {item.status}</p>
+      <h1 className="title">👕 ReWear – Browse Approved Items</h1>
+      {items.length === 0 && <p className="no-items">No items found</p>}
 
-              {isAuthenticated && item.status === "available" && (
-                <div className="item-actions">
-                  <button onClick={() => handleSwap(index)}>Request Swap</button>
-                  <button onClick={() => handleRedeem(index)}>Redeem via Points</button>
-                </div>
-              )}
+      <div className="item-grid">
+        {items.map((item) => (
+          <div className="item-card" key={item.id}>
+            <img src={item.image_url} alt={item.title} className="item-image" />
+            <h3>{item.title}</h3>
+            <p className="desc">{item.description}</p>
+            <p>Size: {item.size} | Condition: {item.condition}</p>
+            <p><strong>Tags:</strong> {item.tags}</p>
+            <p>Status: {item.available ? "✅ Available" : "❌ Taken"}</p>
 
-              {item.status !== "available" && (
-                <p className="unavailable">This item is no longer available.</p>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
+            {item.available && (
+              <div className="button-group">
+                <button className="btn primary" onClick={() => handleSwap(item.id, false)}>Swap Request</button>
+                <button className="btn secondary" onClick={() => handleSwap(item.id, true)}>Redeem via Points</button>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
